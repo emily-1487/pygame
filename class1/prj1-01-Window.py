@@ -3,6 +3,7 @@ import imaplib
 import pygame
 import sys
 import math
+###################定義函式###################
 ###################初始化###################
 pygame.init()#啟動pygame
 width=800#設定視窗寬度
@@ -16,6 +17,7 @@ pygame.display.set_caption("我差一題啊!!!!")
 bg=pygame.Surface((width,height))
 #畫布為白色(R,G,B)
 bg.fill((255,255,255))
+#建立文字
 ###################循環偵測###################
 while True:
     for event in pygame.event.get():
