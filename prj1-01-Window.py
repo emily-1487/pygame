@@ -50,7 +50,7 @@ while True:
     pygame.draw.ellipse(bg,(255,0,0),[650,400,60,35],5)
     pygame.draw.ellipse(bg,(255,0,0),[300,400,60,35],5)
     pygame.draw.line(bg,(125,50,100),(580,475),(417,475),3)
-    if event.type == pygame.MOUSEBUTTONDOWN:
+    if event.type==pygame.MOUSEBUTTONDOWN:
         pygame.draw.line(bg,(125,50,100),(400,300),(450,300),3)
         pygame.draw.line(bg,(125,50,100),(600,300),(650,300),3)
         pygame.draw.rect(bg,(125,50,100),[470,350,60,40],5)
