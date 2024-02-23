@@ -44,6 +44,8 @@ while True:
 
 
 
+
+    bg.fill((255,255,255))
     pygame.draw.circle(bg,(255,255,0),(400,300),30,0)
     pygame.draw.circle(bg,(255,255,0),(600,300),30,0)
     pygame.draw.rect(bg,(125,50,100),[470,350,60,40],5)
@@ -51,7 +53,8 @@ while True:
     pygame.draw.ellipse(bg,(255,0,0),[300,400,60,35],5)
     pygame.draw.line(bg,(125,50,100),(580,475),(417,475),3)
     if event.type==pygame.MOUSEBUTTONDOWN:
-        pygame.draw.line(bg,(125,50,100),(400,300),(450,300),3)
+        bg.fill((255,255,255))
+        pygame.draw.line(bg,(100,50,100),(300,300),(500,300),3)
         pygame.draw.line(bg,(125,50,100),(600,300),(650,300),3)
         pygame.draw.rect(bg,(125,50,100),[470,350,60,40],5)
         pygame.draw.ellipse(bg,(255,0,0),[650,400,60,35],5)
