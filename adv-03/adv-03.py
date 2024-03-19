@@ -65,11 +65,11 @@ th=title.get_height()
 ###################設定雪花基本參數###########
 snow_list=[]
 
-for i in range(150):
-    x_site=random.randrange(0,bg_x)#雪花圓心位置
-    y_site=random.randrange(-10,-1)#雪花圓心位置
-    x_shift=random.randint(-1,1)#x軸偏移量
-    radius=random.randint(4,6)#半徑和y下降量
+for i in range(1500):
+    x_site=random.randrange(10,bg_x)#雪花圓心位置
+    y_site=random.randrange(-bg_y,1000)#雪花圓心位置
+    x_shift=random.randint(-5,1)#x軸偏移量
+    radius=random.randint(2,4)#半徑和y下降量
     snow_list.append({"x_site":x_site,"y_site":y_site,"x_shift":x_shift,"radius":radius})
     
 ###################新增fps###################
@@ -81,7 +81,7 @@ clock=pygame.time.Clock()
 paint=False
 cnt=0
 while True:
-    clock.tick(20)
+    clock.tick(60)
     mouse_pos=pygame.mouse.get_pos()
     # print(mouse_pos)
     for event in pygame.event.get():
