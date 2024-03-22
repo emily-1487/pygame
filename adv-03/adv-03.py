@@ -65,7 +65,7 @@ th=title.get_height()
 ###################設定雪花基本參數###########
 snow_list=[]
 
-for i in range(1500):
+for i in range(3000):
     x_site=random.randrange(10,bg_x)#雪花圓心位置
     y_site=random.randrange(-bg_y,1000)#雪花圓心位置
     x_shift=random.randint(-5,1)#x軸偏移量
@@ -81,7 +81,7 @@ clock=pygame.time.Clock()
 paint=False
 cnt=0
 while True:
-    clock.tick(100)
+    clock.tick(1000)
     mouse_pos=pygame.mouse.get_pos()
     # print(mouse_pos)
     for event in pygame.event.get():
