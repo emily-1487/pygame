@@ -22,9 +22,6 @@ def check_click(pos,x_mix,y_mix,x_max,y_max):
     x_match=x_mix<pos[0]<x_max
     y_match=y_mix<pos[1]<y_max
     if x_match and y_match:
-        pygame.mixer.music.load(mp3_path)
-        pygame.mixer.music.play()
-        pygame.mixer.music.fadeout(600000)
         time.sleep(0.1)
         return True
     else:
