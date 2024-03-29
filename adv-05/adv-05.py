@@ -34,6 +34,15 @@ def game_over():
     screen.fill(black)
     end_sur=score_font.render(f"Game over~Your Score is:{score}",False,red)
     screen.blit(end_sur,(bg_x/2-end_sur.get_width()/2,bg_y/2-end_sur.get_height()/2))
+def mouse_update():
+    global hammer,hammer_tick
+    if hammer_tick==ham1:
+        if hammer_tick>hammer_max_tick:
+            hammer=ham2
+            hammer_tick=0
+        else:
+            hammer_tick+=1
+    screen.blit(hammer,(mouse_pos[0]-15,mouse_pos[1]-15))
 ####################初始化######################
 os.chdir(sys.path[0])
 pygame.init()
@@ -74,6 +83,11 @@ typeface=pygame.font.get_default_font()
 score_font=pygame.font.Font(typeface,24)
 ######################滑鼠物件######################
 pygame.mouse.set_visible(False)#隱藏滑鼠
+ham1=pygame.image.load("Hammer1.png")
+ham2=pygame.image.load("Hammer2.png")
+hammer=ham2
+hammer_tick=0
+hammer_max_tick=5
 ######################循環偵測######################
 while True:
     clock.tick(30)
