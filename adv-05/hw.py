@@ -13,7 +13,8 @@ def gophers_update():
         times+=1#次數加一
     else:
         tick+=1
-    screen.blit(gopher,(pos[0]-gopher.get_width()/2,pos[1]-gopher.get_height()/2))
+    screen.blit(gopher1,(pos[0]-gopher1.get_width()/2,pos[1]-gopher1.get_height()/2))
+    screen.blit(gopher2,(pos[0]-gopher2.get_width()/2,pos[1]-gopher2.get_height()/2))
 def score_update():
     score_sur=score_font.render(str(score),False,red)
     screen.blit(score_sur,(10,10))
@@ -76,7 +77,8 @@ pos6 = [[195,305],[400,305],[610,305],[195,450],[400,450],[610,450]]
 
 # pos6 = [[200,200],[300,200],[400,200],[200,300],[300,300],[400,300]]
 pos = pos6[0] # 外圍記錄圓的位子
-gopher = pygame.image.load("Gophers150.png") # 地鼠圖片
+gopher1 = pygame.image.load("胖虎.jpg") # 地鼠圖片
+gopher2=pygame.image.load("大熊.jpg")
 gophers=pygame.image.load('Gophers_BG_800x600.png')
 ######################分數物件######################
 score=0
@@ -101,6 +103,8 @@ while True:
             if check_click(mouse_pos,pos[0]-50,pos[1]-50,pos[0]+50,pos[1]+50):
                 tick=max_tick+1
                 score+=1
+    for mole in 
+
     if times>=times_max:
         game_over()
     else:          
