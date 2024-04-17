@@ -6,10 +6,10 @@ import random
 ####################定義函式######################
 def gophers_update():
     global tick,pos,score,times,gophers_tick,hitsur#使用全域變數
-    if tick>max_tick:
+    if tick["tick"]>max_tick:
         new_pos=random.randint(0,5)
         pos=pos6[new_pos]
-        tick=0
+        tick["tick"]=0
         times+=1#次數加一
     else:
         tick["tick"]+=1
@@ -49,9 +49,8 @@ def mouse_update():
         else:
             hammer_tick["tick"] += 1
 # 讓鎚子的中心點在滑鼠的位置
-    screen.blit(hammer, (mouse_pos[0] - 15, mouse_pos[1] - 15)) 
-def tick_update(tick:dict[str,int],max_tick):
-    """計數器更新"""
+    screen.blit(hammer, (mouse_pos[0] - 15, mouse_pos[1] - 15))
+def tick_undate(tick:dict[str,int],max_tick):
     if tick["tick"]>max_tick:
         tick["tick"]=0
         reset=True
@@ -85,8 +84,8 @@ times=0#次數計數
 times_max=5#地鼠出現最大次數
 typeface=pygame.font.get_default_font()
 times_font=pygame.font.Font(typeface,24)
-######################聲音物件#####################
-pygame.mixer.music.load("hit.mp3")
+######################聲音物件######################
+pygame.mixer.music.load("hit.mp3")# 載入音樂檔
 ######################地鼠物件######################
 pos6 = [[195,305],[400,305],[610,305],[195,450],[400,450],[610,450]]
 # pos6 = [[200,200],[300,200],[400,200],[200,300],[300,300],[400,300]]
@@ -118,20 +117,18 @@ while True:
         if event.type==pygame.MOUSEBUTTONDOWN:
             hammer=ham1
             if check_click(mouse_pos,pos[0]-50,pos[1]-50,pos[0]+50,pos[1]+50):
-                tick=max_tick+1
+                tick["tick"]=max_tick+1
                 score+=1
                 hitsur=gophers2
-                pygame.mixer.music.play
+                pygame.mixer.music.play()
     if times>=times_max:
         game_over()
-    else:          
+    else:
         screen.blit(bg,(0,0))
         gophers_update()
         # pygame.draw.circle(screen,blue,mouse_pos,10)
         score_update()
         pygame.display.update()
         times_update()
-        mouse_update()  
+        mouse_update()# 更新滑鼠
     pygame.display.update()
-
-

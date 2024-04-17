@@ -72,12 +72,15 @@ times_max=5#地鼠出現最大次數
 typeface=pygame.font.get_default_font()
 times_font=pygame.font.Font(typeface,24)
 ######################地鼠物件######################
-pos6 = [[195,305],[400,305],[610,305],[195,450],[400,450],[610,450]]
+pos6 = [[195,305],[400,305],[610,305],[195,450],[400,450],[610,450]]#六個位置
 
 # pos6 = [[200,200],[300,200],[400,200],[200,300],[300,300],[400,300]]
 pos = pos6[0] # 外圍記錄圓的位子
 gopher = pygame.image.load("Gophers150.png") # 地鼠圖片
-gophers=pygame.image.load('Gophers_BG_800x600.png')
+gophers=pygame.image.load('Gophers_BG_800x600.png')# 地鼠圖片
+hitsur = gophers  # 設定目前要顯示的地鼠圖片
+gophers_tick = 0 # 計數器目前值
+gophers_max_tick = 5 # 設定計數器最大值
 ######################分數物件######################
 score=0
 typeface=pygame.font.get_default_font()
@@ -110,5 +113,5 @@ while True:
         score_update()
         pygame.display.update()
         times_update()
-        mouse_update()  
+        mouse_update()  #更新滑鼠
     pygame.display.update()
