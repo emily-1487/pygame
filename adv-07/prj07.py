@@ -21,7 +21,7 @@ img_dinosaur=[
     pygame.image.load("image/小恐龍1.png"),
     pygame.image.load("image/小恐龍2.png"),
 ]
-img_cacti=pygame.image.load("image/cacti.png")
+img_cacti=pygame.image.load("image/cacti.png")#加載仙人掌
 bg_x=img.get_width()
 bg_y=img.get_height()
 bg_roll_x=0#背景圖片滾動位置
@@ -43,9 +43,9 @@ pygame.display.set_caption("Dinosour")
 def bg_update():
     """更新背景"""
     global bg_roll_x
-    bg_roll_x=(bg_roll_x-10)%bg_x
-    screen.blit(img,(bg_roll_x-bg_x,0))
-    screen.blit(img,(bg_roll_x,0))
+    bg_roll_x=(bg_roll_x-10)%bg_x#背景移動
+    screen.blit(img,(bg_roll_x-bg_x,0))#背景圖左移
+    screen.blit(img,(bg_roll_x,0))#背景圖接續顯示
 def move_dinosour():
     """移動恐龍"""
     global ds_y,jumpState,jumpValue,ds_index
@@ -56,7 +56,8 @@ def move_dinosour():
         if ds_y<=0:
             jumpValue=jump_height
         ds_y+=jumpValue
-        jumpValue+=1
+        #平滑跳躍
+        jumpValue+=1#上升速度逐漸減小
         if ds_y>=LIMIT_LOW:
             jumpState=False
             ds_y=LIMIT_LOW#確保恐龍回到地面
