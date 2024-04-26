@@ -58,7 +58,7 @@ def move_dinosour():
         ds_y+=jumpValue
         #平滑跳躍
         jumpValue+=1#上升速度逐漸減小
-        if ds_y>=LIMIT_LOW:
+        if ds_y<=LIMIT_LOW:
             jumpState=False
             ds_y=LIMIT_LOW#確保恐龍回到地面
     ds_index=(ds_index-1)%len(img_dinosaur)
@@ -75,7 +75,7 @@ while True:
         if event.type==pygame.QUIT:
             sys.exit()
         if event.type==KEYDOWN:
-            if event.key==K_SPACE and ds_y<=LIMIT_LOW:#判斷恐龍是否在地上
+            if event.pygame.key==K_SPACE and ds_y<=LIMIT_LOW:#判斷恐龍是否在地上
                 jumpState=True#開啟跳躍狀態
     bg_update()
     move_dinosour()
