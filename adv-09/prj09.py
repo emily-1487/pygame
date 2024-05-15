@@ -14,7 +14,7 @@ from pygame.locals import *
 os.chdir(sys.path[0])
 pygame.init()
 LIMIT_LOW=140
-PTERA_LIMIT_LOW=120
+PTERA_LIMIT_LOW=125
 clock=pygame.time.Clock()
 RED=(255,0,0)
 ######################載入圖片物件##################
