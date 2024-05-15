@@ -14,7 +14,7 @@ from pygame.locals import *
 os.chdir(sys.path[0])
 pygame.init()
 LIMIT_LOW=140
-PTERA_LIMIT_LOW=80
+PTERA_LIMIT_LOW=120
 clock=pygame.time.Clock()
 RED=(255,0,0)
 ######################載入圖片物件##################
@@ -58,7 +58,7 @@ jumpheight=13
 #  # 障礙物偵測半徑
 # cacti_detect_r = max(img_cati.get_width(), img_cati.get_height()) / 2 - 15
 #####################翼龍物件#######################
-ptera_x = bg_x-1000
+ptera_x = bg_x-100
 ptera_y=PTERA_LIMIT_LOW
 ptera_index=0
 ptera_shift = 10 # 翼龍移動量
