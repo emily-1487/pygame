@@ -75,19 +75,23 @@ def game_over():
     """遊戲結束"""
     screen.blit(img_gg, ((bg_x - gg_w) / 2, (bg_y - gg_h) / 2))
 def add_enemy_to_queue():
-    enemy_type=random.choice(["cacti","ptera"])
-    if len(enemies_queue)<max_enemies:
-        enemies_queue.append(enemy_type)
+    """隨機選擇一個敵人加入到隊列中"""
+    enemy_type=random.choice(["cacti","ptera"])# 隨機選擇仙人掌或翼龍
+    if len(enemies_queue)<max_enemies:# 如果隊列中的敵人數量小於最大敵人數量
+        enemies_queue.append(enemy_type)# 將新敵人加入隊列
+        # 在畫面右上角顯示目前對列中的敵人縮圖
     for i,enemy in enumerate(enemies_queue):
+        # enumerate(enemies_queue)的意思是將enemies_queue中的元素依序取出，並且給予一個編號
         if enemy=="cacti":
             screen.blit(img_cacti,(bg_x-max_enemies*50+i*50,0))
         elif enemy =="ptera":
             screen.blit(img_ptera[0],(bg_x-max_enemies*50+i*50,0 ))
 def create_enemies():
+    """隨機決定是否召喚隊列中的敵人"""
     global active_enemies,score,gg,enemies_delay
-    enemies_delay=(enemies_delay-1)%enemies_delay_max
+    enemies_delay=(enemies_delay-1)%enemies_delay_max# 敵人出現間隔計數
     if len(enemies_queue)>0 and enemies_delay==0:
-        enemy_type=enemies_queue.popleft()
+        enemy_type=enemies_queue.popleft()# 將隊列中的敵人取出
         if enemy_type=="cacti":
             active_enemies.append(Cacti(bg_x-100,LIMIT_LOW,[img_cacti],10))
         elif enemy_type=="ptera":
@@ -118,14 +122,14 @@ LIMIT_LOW = 140  # 地面高度
 PTERA_LIMIT_LOW = 110  # 翼龍高度
 clock = pygame.time.Clock()
 RED = (255, 0, 0)  # 紅色
-FPS=20
-level_up=False
+FPS=20# 遊戲更新畫面的時間
+level_up=False# 升級狀態
 ####################敵人出現Queue######################
-max_enemies=3
-enemies_queue=deque(maxlen=max_enemies)
+max_enemies=3# 最大敵人數量，可以根據需要修改這個值，總共可以放幾個敵人在隊列中
+enemies_queue=deque(maxlen=max_enemies)# 使用deque來創建一個有最大長度的隊列
 active_enemies=[]
-enemies_delay=0
-enemies_delay_max=20
+enemies_delay=0# 敵人出現間隔計數
+enemies_delay_max=20# 敵人出現間隔計數最大值
 ####################載入圖片物件######################
 img = pygame.image.load("image/bg.png")  # 加載背景
 img_dinosaur = [  # 加載恐龍
@@ -200,12 +204,14 @@ gg_h = img_gg.get_height()  # 遊戲結束圖片高度
 while True:
     clock.tick(FPS)
     if score%5==0 and score !=0 and not level_up:
+        # 每得到5分，敵人出現間隔減少1，20為最小間隔
         enemies_delay_max=max(20,enemies_delay_max-1)
         if enemies_delay_max==20:
+            # 如果敵人出現間隔已經最小，則遊戲更新畫面的時間加快
             FPS+=10
-        level_up=True
+        level_up=True# 避免重複升級
     elif score%5!=0:
-        level_up=False
+        level_up=False# 重置升級狀態
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
