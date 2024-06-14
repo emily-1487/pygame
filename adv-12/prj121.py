@@ -10,7 +10,7 @@ from collections import deque
 ######################障礙物物件######################
 class Obstacle:
     def __init__(self, x: int, y: int, img: list[pygame.Surface], shift: int):
-        self.x = x
+        self.x = x  #
         self.y = y
         self.img = img
         self.shift = shift
