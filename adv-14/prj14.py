@@ -61,13 +61,39 @@ def move_starship():
         ss_x = ss_wh
     if ss_x > bg_x - ss_wh:
         ss_x = bg_x - ss_wh
-    screen.blit(
-        ss_img,
-        [
-            ss_x - ss_wh,
-            ss_y - ss_hh,
-        ],
-    )
+    screen.blit(ss_img, [ss_x - ss_wh, ss_y - ss_hh])
+
+
+def move_burner():
+    """移動燃燒器"""
+    global burn_x, burn_y, burn_img  # 燃燒器x位置，y位置，圖片
+    burn_img = img_burn
+    key = pygame.key.get_pressed()
+    if key[pygame.K_LEFT]:
+        burn_x -= 20
+        ss_img = img_sship[1]
+    if key[pygame.K_RIGHT]:
+        burn_x += 20
+        ss_img = img_sship[2]
+    if key[pygame.K_UP]:
+        burn_y -= 20
+    if key[pygame.K_DOWN]:
+        burn_y += 20
+    burn_y = ss_y + burn_img.get_height() / 2 + 40
+    burn_x = ss_x + burn_img.get_width() / 2 - 10
+    burn_hh = burn_img.get_height() / 2
+    burn_wh = burn_img.get_width() / 2
+    if burn_y < burn_hh:
+        burn_y = ss_hh - 20
+    if burn_y > bg_y - burn_hh:
+        burn_y = bg_y - burn_hh
+    if burn_x < burn_wh:
+        burn_x = ss_wh - 20
+    if burn_x > bg_x - burn_wh:
+        burn_x = bg_x - burn_wh
+    if burn_x > bg_x - burn_wh:
+        burn_x = bg_x - burn_wh
+    screen.blit(burn_img, [burn_x - burn_wh, burn_y - burn_hh])
 
 
 ############################玩家設定############################
@@ -91,4 +117,5 @@ while True:
                 screen = pygame.display.set_mode(bg_size)
     roll_bg()
     move_starship()
+    move_burner()
     pygame.display.update()

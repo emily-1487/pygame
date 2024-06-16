@@ -196,7 +196,7 @@ screen = pygame.display.set_mode([bg_x, bg_y])  # 設定窗口
 pygame.display.set_caption("Dinosaur")
 
 ######################分數物件######################
-score = 0  # 分數計數
+score = 10  # 分數計數
 typeface = pygame.font.get_default_font()
 score_font = pygame.font.Font(typeface, 36)
 
