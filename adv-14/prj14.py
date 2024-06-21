@@ -80,7 +80,7 @@ def move_burner():
     if key[pygame.K_DOWN]:
         burn_y += 20
     burn_y = ss_y + burn_img.get_height() / 2 + 40
-    burn_x = ss_x + burn_img.get_width() / 2 - 10
+    burn_x = ss_x + burn_img.get_width() / 2 - 9
     burn_hh = burn_img.get_height() / 2
     burn_wh = burn_img.get_width() / 2
     if burn_y < burn_hh:
