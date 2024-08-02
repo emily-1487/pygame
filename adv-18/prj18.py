@@ -124,7 +124,7 @@ def move_starship():
         ss_x = bg_x - ss_wh
     burn_shift = (burn_shift + 2) % 6  # 飛船火焰的位移
     ss_invincible = max(0, ss_invincible - 1)
-    if ss_invincible:
+    if ss_invincible % 2 == 0:
         screen.blit(
             img_burn, [ss_x - burn_w / 2, ss_y + burn_h + burn_shift]
         )  # 飛船火焰
